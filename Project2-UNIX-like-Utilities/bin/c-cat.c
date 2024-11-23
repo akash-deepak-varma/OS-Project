@@ -1,6 +1,9 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
+    for(int i=0 ;argv[i] != NULL ;i++){
+        printf("testcs-%s\n" ,argv[i]);
+    }
     if (argc < 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         return 1;

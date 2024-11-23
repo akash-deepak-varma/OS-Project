@@ -13,5 +13,5 @@ if [ ! -x "./MyShell" ]; then
 fi
 
 # Open MyShell in a new terminal from within the 'bin' directory
-gnome-terminal -- bash -c "./MyShell; exec bash"
+gnome-terminal --geometry=100x40 -- bash -c "./MyShell; exec bash"
 
