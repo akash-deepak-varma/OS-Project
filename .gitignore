@@ -1,10 +1,15 @@
-Project2-UNIX-like-Utilities/bin/.env
-Project2-UNIX-like-Utilities/bin/c-cat
-Project2-UNIX-like-Utilities/bin/c-cp
-Project2-UNIX-like-Utilities/bin/c-grep
-Project2-UNIX-like-Utilities/bin/c-ls
-Project2-UNIX-like-Utilities/bin/c-mv
-Project2-UNIX-like-Utilities/bin/c-rm
-Project2-UNIX-like-Utilities/bin/c-wc
-Project2-UNIX-like-Utilities/bin/MyShell
-.vscode
+# Ignore specific files in the bin directory
+bin/c-cat
+bin/c-cp
+bin/c-grep
+bin/c-ls
+bin/c-mv
+bin/c-rm
+bin/c-wc
+bin/MyShell
+
+# Ignore .env file
+bin/.env
+
+# Ignore .vscode folder
+.vscode/
