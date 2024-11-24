@@ -1,15 +1,20 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-    for(int i=0 ;argv[i] != NULL ;i++){
+    /*for(int i=0 ;argv[i] != NULL ;i++){
         printf("testcs-%s\n" ,argv[i]);
-    }
+    }*/
+    char dir[128] = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+    char path[1024];
     if (argc < 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         return 1;
     }
 
-    FILE *file = fopen(argv[1], "r");
+    snprintf(path ,sizeof(path) ,"%s/%s" ,dir ,argv[1]);
+    //printf("%s" ,path);
+
+    FILE *file = fopen(path, "r");
     if (file == NULL) {
         perror("Error opening file");
         return 1;

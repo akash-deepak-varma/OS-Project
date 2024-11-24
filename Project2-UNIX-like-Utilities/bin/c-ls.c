@@ -3,7 +3,8 @@
 #include <dirent.h>
 
 int main(int argc, char *argv[]) {
-    const char *dir_name = argc > 1 ? argv[1] : ".";  // Use provided directory or current directory by default
+    char* default_dir = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+    const char *dir_name = argc > 1 ? argv[1] : default_dir;  // Use provided directory or current directory by default
     DIR *dir = opendir(dir_name);
 
     if (dir == NULL) {

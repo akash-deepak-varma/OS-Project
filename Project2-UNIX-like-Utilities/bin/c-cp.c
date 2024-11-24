@@ -7,8 +7,15 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    FILE *src = fopen(argv[1], "r");
-    FILE *dest = fopen(argv[2], "w");
+    char* default_dir = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+    char path1[1024];
+    char path2[1024];
+
+    snprintf(path1 ,sizeof(path1) ,"%s/%s" ,default_dir ,argv[1]);
+    snprintf(path2 , sizeof(path2) ,"%s/%s" ,default_dir ,argv[2]);
+
+    FILE *src = fopen(path1, "r");
+    FILE *dest = fopen(path2, "w");
 
     if (src == NULL || dest == NULL) {
         perror("custom_cp: Could not open file");

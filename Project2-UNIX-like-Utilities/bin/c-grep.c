@@ -8,8 +8,13 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    char* default_dir = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+    char path[1024];
+
+    snprintf(path ,sizeof(path) ,"%s/%s" ,default_dir ,argv[2]);
+
     const char *pattern = argv[1];
-    FILE *file = fopen(argv[2], "r");
+    FILE *file = fopen(path, "r");
 
     if (file == NULL) {
         perror("custom_grep: Could not open file");
