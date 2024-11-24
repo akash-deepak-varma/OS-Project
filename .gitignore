@@ -10,6 +10,7 @@ bin/MyShell
 
 # Ignore .env file
 bin/.env
+Project2-UNIX-like-Utilities/bin/.env
 
 # Ignore .vscode folder
 .vscode/
