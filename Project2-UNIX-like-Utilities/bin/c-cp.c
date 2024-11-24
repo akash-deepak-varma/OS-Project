@@ -1,5 +1,6 @@
 // custom_cp.c
 #include <stdio.h>
+#include "getpath.h"
 
 int main(int argc, char *argv[]) {
     if (argc < 3) {
@@ -7,7 +8,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    char* default_dir = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+    char* default_dir = getPath();
     char path1[1024];
     char path2[1024];
 

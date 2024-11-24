@@ -25,12 +25,13 @@ char *getPath() {
             char *value = equal_sign + 1;
             value[strcspn(value, "\n")] = 0;
 
-            if (strchr(value, '/')) {
-                strncpy(path, value, LENGTH - 1);
-                path[LENGTH - 1] = '\0';
-                fclose(file);
-                return path;
+            if(value[0] == '"'){
+                memmove(value ,value+1 ,strlen(value));
             }
+
+            value[strlen(value)-1] = '\0';
+
+            return value;
         }
     }
 

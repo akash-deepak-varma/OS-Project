@@ -2,13 +2,15 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "getpath.h"
+
 int main(int argc, char *argv[]) {
     if (argc < 3) {
         fprintf(stderr, "Usage: custom_grep <pattern> <file>\n");
         return 1;
     }
 
-    char* default_dir = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+    char* default_dir = getPath();
     char path[1024];
 
     snprintf(path ,sizeof(path) ,"%s/%s" ,default_dir ,argv[2]);

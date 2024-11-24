@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
+#include "getpath.h"
 
-char dir[128] = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+
 
 int main(int argc, char *argv[]) {
+    char *dir = getPath();
     if (argc != 4) {
         fprintf(stderr, "Usage: custom_mv <source> <destination>\n");
         return 1;

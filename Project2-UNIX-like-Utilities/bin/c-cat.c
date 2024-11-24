@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include"getpath.h"
 
 int main(int argc, char *argv[]) {
     /*for(int i=0 ;argv[i] != NULL ;i++){
         printf("testcs-%s\n" ,argv[i]);
     }*/
-    char dir[128] = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+    char dir[128] = getPath();
     char path[1024];
     if (argc < 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);

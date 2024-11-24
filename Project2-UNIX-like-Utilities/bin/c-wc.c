@@ -1,9 +1,10 @@
 // custom_wc.c
 #include <stdio.h>
+#include "getpath.h"
 
-char dir[128] = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
 
 int main(int argc, char *argv[]) {
+    char *dir = getPath();
     if (argc < 2) {
         fprintf(stderr, "Usage: custom_wc <file>\n");
         return 1;
