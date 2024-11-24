@@ -22,9 +22,9 @@ int main(int argc, char *argv[]) {
     }
     snprintf(dest ,sizeof(dest) ,"%s/%s" ,dir ,argv[3]);
 
-    for(int i=0 ;argv[i] != NULL ;i++){
+    /*for(int i=0 ;argv[i] != NULL ;i++){
         printf("argv-%s\n" ,argv[i]);
-    }
+    }*/
 
     printf("%s\n" ,src);
     printf("%s\n" ,dest);
