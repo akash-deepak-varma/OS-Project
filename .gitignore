@@ -8,6 +8,8 @@ bin/c-rm
 bin/c-wc
 bin/MyShell
 
+Project2-UNIX-like-Utilities/bin/MyShell
+
 # Ignore .env file
 bin/.env
 Project2-UNIX-like-Utilities/bin/.env
