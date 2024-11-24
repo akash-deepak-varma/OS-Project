@@ -6,6 +6,6 @@
 - [x] c-ls
 - [x] c-cp
 - [x] c-grep
-- [ ] c-mv
-- [ ] c-mr
+- [x] c-mv
+- [x] c-mr
 - [ ] c-wc

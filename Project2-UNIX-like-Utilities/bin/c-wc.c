@@ -1,13 +1,18 @@
 // custom_wc.c
 #include <stdio.h>
 
+char dir[128] = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
+
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         fprintf(stderr, "Usage: custom_wc <file>\n");
         return 1;
     }
 
-    FILE *file = fopen(argv[1], "r");
+    char path[1024];
+    snprintf(path ,sizeof(path) ,"%s/%s" ,dir ,argv[1]);
+
+    FILE *file = fopen(path, "r");
     if (file == NULL) {
         perror("custom_wc: Could not open file");
         return 1;

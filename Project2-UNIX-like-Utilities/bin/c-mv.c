@@ -1,80 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<string.h>
 
-// Function to copy a file
-int copy_file(const char *source, const char *destination) {
-    FILE *src_file, *dest_file;
-    char buffer[1024];
-    size_t bytes;
+char dir[128] = "/home/akash/IIITDM/5th Sem/OS/Project/Project2-UNIX-like-Utilities";
 
-    // Open the source file for reading
-    src_file = fopen(source, "rb");
-    if (!src_file) {
-        perror("custom_mv: Could not open source file");
-        return -1;
+int main(int argc, char *argv[]) {
+    if (argc != 4) {
+        fprintf(stderr, "Usage: custom_mv <source> <destination>\n");
+        return 1;
     }
 
-    // Open the destination file for writing
-    dest_file = fopen(destination, "wb");
+    char src[1024] , dest[1024];
+
+    if(strcmp(argv[2] ,".") != 0){
+        snprintf(src ,sizeof(src) ,"%s/%s/%s" ,dir ,argv[2] ,argv[1]);
+    }
+    else{
+        snprintf(src ,sizeof(src) ,"%s/%s" ,dir ,argv[1]);
+    }
+    snprintf(dest ,sizeof(dest) ,"%s/%s" ,dir ,argv[3]);
+
+    for(int i=0 ;argv[i] != NULL ;i++){
+        printf("argv-%s\n" ,argv[i]);
+    }
+
+    printf("%s\n" ,src);
+    printf("%s\n" ,dest);
+
+    FILE *src_file = fopen(src, "rb");
+    if (!src_file) {
+        perror("custom_mv: Could not open source file");
+        return 1;
+    }
+
+    FILE *dest_file = fopen(dest, "wb");
     if (!dest_file) {
         perror("custom_mv: Could not open destination file");
         fclose(src_file);
-        return -1;
+        return 1;
     }
 
-    // Copy the contents from source to destination
+    char buffer[1024];
+    size_t bytes;
     while ((bytes = fread(buffer, 1, sizeof(buffer), src_file)) > 0) {
         if (fwrite(buffer, 1, bytes, dest_file) != bytes) {
             perror("custom_mv: Error writing to destination file");
             fclose(src_file);
             fclose(dest_file);
-            return -1;
+            return 1;
         }
     }
 
-    if (ferror(src_file)) {
-        perror("custom_mv: Error reading from source file");
-        fclose(src_file);
-        fclose(dest_file);
-        return -1;
-    }
-
-    // Close both files
     fclose(src_file);
     fclose(dest_file);
-    return 0;
-}
 
-// Function to delete a file
-int delete_file(const char *file) {
-    if (remove(file) != 0) {
+    if (remove(src) != 0) {
         perror("custom_mv: Could not delete source file");
-        return -1;
-    }
-    return 0;
-}
-
-int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "Usage: custom_mv <source> <destination>\n");
-        return 1;
-    }
-
-    // Ensure the source file exists
-    if (access(argv[1], F_OK) != 0) {
-        fprintf(stderr, "custom_mv: Source file does not exist\n");
-        return 1;
-    }
-
-    // Copy the source file to the destination
-    if (copy_file(argv[1], argv[2]) != 0) {
-        fprintf(stderr, "custom_mv: Failed to copy file\n");
-        return 1;
-    }
-
-    // Delete the source file
-    if (delete_file(argv[1]) != 0) {
-        fprintf(stderr, "custom_mv: Failed to delete source file\n");
         return 1;
     }
 

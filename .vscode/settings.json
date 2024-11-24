@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.l": "lex",
+        "*.y": "lex",
+        "limits": "c"
+    }
+}
