@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
         printf("yes yesy yej\n");
     }*/
 
-    printf("defaultx-%s\n" ,getPath());
+    //printf("defaultx-%s\n" ,getPath());
     const char *dir_name = argc > 1 ? argv[1] : default_dir;  // Use provided directory or current directory by default
     DIR *dir = opendir(dir_name);
 
